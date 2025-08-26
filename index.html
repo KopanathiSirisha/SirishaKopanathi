@@ -1222,8 +1222,7 @@
                             <span class="tech-item">JS</span>
                         </div>
                         <div class="project-links">
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            <a href="#"><i class="fab fa-github"></i> Source Code</a>
+                            <a href="https://kopanathisirisha.github.io/SirishaKopanathi/"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                         </div>
                     </div>
                 </div>
@@ -1328,8 +1327,7 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting && entry.target.id === 'about') {
-                        const skillBars = document.querySelectorAll('.skill-progress');
-                        const percentages = ['85%', '80%', '90%', '85%', '75%', '80%', '70%'];
+                        const skillBars = document.querySelectorAll('.skill-progress')
                         skillBars.forEach((bar, index) => {
                             setTimeout(() => {
                                 bar.style.width = percentages[index];
@@ -1375,6 +1373,7 @@
 </body>
 
 </html>
+
 
 
 
