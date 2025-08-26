@@ -832,6 +832,18 @@
             transition: all 0.4s ease;
             text-decoration: none;
         }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:90px; 
+}
+
+.project-card {
+    max-width: 1000px; 
+    margin: 0 auto;   
+}
+
         
         .resume-btn:hover {
             background: var(--gold);
@@ -1006,6 +1018,29 @@
         .floating {
             animation: vintage-float 6s ease-in-out infinite;
         }
+          .slider {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    left: 100%; /* Start off-screen */
+    transition: left 0.5s ease-in-out;
+  }
+
+  .slide.active {
+    left: 0; /* Visible */
+  }
+
+  .slide.prev {
+    left: -100%; /* Slide out to left */
+  }
     </style>
 </head>
 <body>
@@ -1226,49 +1261,31 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="project-card">
-    <div class="project-image">
-        <iframe 
-            srcdoc='
-                <style>
-                    body { margin:0; overflow:hidden; }
-                    img { width:100%; height:100%; object-fit:cover; }
-                </style>
-                <img id="slideImg" src="plant1.jpg">
-                <script>
-                    const images = ["plant1.jpg", "plant2.jpg"];
-                    let i = 0;
-                    setInterval(() => {
-                        i = (i + 1) % images.length;
-                        document.getElementById("slideImg").src = images[i];
-                    }, 2000);
-                </script>
-            ' 
-            frameborder="0" 
-            width="100%" 
-            height="250px">
-        </iframe>
+            </div><div class="project-card">
+  <div class="project-image">
+    <!-- Slider container -->
+    <div class="slider">
+      <img src="C:\Users\HOME\Pictures\Screenshots\Screenshot 2025-08-26 171059.png" class="slide active" alt="Plant 1">
+      <img src="C:\Users\HOME\Pictures\Screenshots\Screenshot 2025-08-26 171043.png"class="slide" alt="Plant 2">
     </div>
-    <div class="project-info">
-        <h3 class="project-title">Online Plant Store</h3>
-        <p class="project-description">
-            A responsive online plant store built with React, HTML, and CSS. Users can browse plants, add to cart, and checkout. Deployed using GitHub Pages.
-        </p>
-        <div class="project-tech">
-            <span class="tech-item">React</span>
-            <span class="tech-item">HTML</span>
-            <span class="tech-item">CSS</span>
-            <span class="tech-item">GitHub Pages</span>
-        </div>
-        <div class="project-links">
-            <a href="https://kopanathisirisha.github.io/MyWebpage/" target="_blank">
-                <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
-        </div>
+  </div>
+  <div class="project-info">
+    <h3 class="project-title">Online Plant Store</h3>
+    <p class="project-description">
+      A responsive online plant store built with HTML, CSS, and JavaScript. Users can browse plants, add to cart, and checkout. Published using GitHub Pages.
+    </p>
+    <div class="project-tech">
+      <span class="tech-item">CSS</span>
+      <span class="tech-item">JavaScript</span>
+      <span class="tech-item">GitHub Pages</span>
     </div>
+    <div class="project-links">
+      <a href="https://kopanathisirisha.github.io/MyWebpage/" target="_blank">
+        <i class="fas fa-external-link-alt"></i> Live Demo
+      </a>
+    </div>
+  </div>
 </div>
-
         </section>
 
         <section id="contact" class="ornament-border">
@@ -1411,22 +1428,22 @@
                 });
             });
         });
+         const slides = document.querySelectorAll(".slider .slide");
+  let current = 0;
+
+  function showNextSlide() {
+    slides[current].classList.remove("prev");
+    slides[current].classList.add("active");
+    slides[current].classList.add("prev")
+    current = (current + 1) % slides.length;
+
+    slides[current].classList.add("active");
+    slides.forEach((slide, idx) => {
+      if(idx !== current) slide.classList.remove("prev");
+    });
+  }
+
+  setInterval(showNextSlide, 3000);
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
