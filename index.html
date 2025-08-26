@@ -1227,6 +1227,48 @@
                     </div>
                 </div>
             </div>
+            <div class="project-card">
+    <div class="project-image">
+        <iframe 
+            srcdoc='
+                <style>
+                    body { margin:0; overflow:hidden; }
+                    img { width:100%; height:100%; object-fit:cover; }
+                </style>
+                <img id="slideImg" src="plant1.jpg">
+                <script>
+                    const images = ["plant1.jpg", "plant2.jpg"];
+                    let i = 0;
+                    setInterval(() => {
+                        i = (i + 1) % images.length;
+                        document.getElementById("slideImg").src = images[i];
+                    }, 2000);
+                </script>
+            ' 
+            frameborder="0" 
+            width="100%" 
+            height="250px">
+        </iframe>
+    </div>
+    <div class="project-info">
+        <h3 class="project-title">Online Plant Store</h3>
+        <p class="project-description">
+            A responsive online plant store built with React, HTML, and CSS. Users can browse plants, add to cart, and checkout. Deployed using GitHub Pages.
+        </p>
+        <div class="project-tech">
+            <span class="tech-item">React</span>
+            <span class="tech-item">HTML</span>
+            <span class="tech-item">CSS</span>
+            <span class="tech-item">GitHub Pages</span>
+        </div>
+        <div class="project-links">
+            <a href="https://kopanathisirisha.github.io/MyWebpage/" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+        </div>
+    </div>
+</div>
+
         </section>
 
         <section id="contact" class="ornament-border">
@@ -1373,6 +1415,7 @@
 </body>
 
 </html>
+
 
 
 
